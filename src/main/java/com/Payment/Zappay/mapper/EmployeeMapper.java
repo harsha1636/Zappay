@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface EmployeeMapper {
 
 //        public static EmployeeDto mapToEmployeeDto(Employee employee){
