@@ -2,6 +2,7 @@ package com.Payment.Zappay.service.impl;
 
 import com.Payment.Zappay.dto.EmployeeDto;
 import com.Payment.Zappay.entity.Employee;
+import com.Payment.Zappay.exception.ResourceNotFoundException;
 import com.Payment.Zappay.mapper.EmployeeMapper;
 import com.Payment.Zappay.repository.EmployeeRepository;
 import com.Payment.Zappay.service.EmployeeService;
@@ -23,7 +24,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {
-        return null;
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee is not existed with given ID : " + employeeId));
+        return EmployeeMapper.mapToEmployeeDto(employee);
     }
+
 }
 
