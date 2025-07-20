@@ -2,18 +2,23 @@ package com.Payment.Zappay.controller;
 
 import com.Payment.Zappay.dto.EmployeeDto;
 import com.Payment.Zappay.service.EmployeeService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@AllArgsConstructor
+@RestController
+@RequestMapping("/api/employees")
 public class EmployeeController {
 
     private EmployeeService employeeService;
 
     //Adding an Employee
-    //http://localhost:3000/api/employees
+    //http://127.0.0.1:3000/api/employees
     @PostMapping
     public ResponseEntity <EmployeeDto> createEmployee (@RequestBody  EmployeeDto employeeDto){
         EmployeeDto saveEmployee = employeeService.createEmployee(employeeDto);
