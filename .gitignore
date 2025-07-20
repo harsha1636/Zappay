@@ -34,5 +34,6 @@ build/
 
 .gitattributes
 mvnw.cmd
-.idea
-.mvn
+.idea/
+.mvn/
+
